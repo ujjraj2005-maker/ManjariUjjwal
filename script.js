@@ -60,6 +60,31 @@ function showMessage() {
     document.getElementById("surprise").innerText = messages[randomIndex];
 }
 
+// Floating Hearts Generator
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+
+    // Random heart emoji
+    const hearts = ["💖", "💘", "💕", "💞", "❤️"];
+    heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+
+    // Random position
+    heart.style.left = Math.random() * 100 + "vw";
+
+    // Random size
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+
+    // Random animation duration
+    heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+
+    document.querySelector(".hearts-container").appendChild(heart);
+
+    // Remove after animation
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
 
 // Generate hearts 
 setInterval(createHeart, 300);
@@ -94,3 +119,7 @@ function createFloatingEmoji() {
 
 
 setInterval(createFloatingEmoji, 500);
+
+
+
+
