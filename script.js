@@ -59,3 +59,38 @@ function showMessage() {
 
     document.getElementById("surprise").innerText = messages[randomIndex];
 }
+
+
+// Generate hearts 
+setInterval(createHeart, 300);
+
+
+const emojis = ["❤️", "💖", "💘", "💞", "💕", "🥰", "😍", "💓", "🌸", "✨","😉","😗","😘","🤗","🤩","🫀"];
+
+function createFloatingEmoji() {
+    const container = document.querySelector(".floating-container");
+
+    const emoji = document.createElement("div");
+    emoji.classList.add("floating");
+
+    emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+    
+    emoji.style.left = Math.random() * 100 + "vw";
+
+  
+    emoji.style.fontSize = (20 + Math.random() * 30) + "px";
+
+    
+    emoji.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    container.appendChild(emoji);
+
+    
+    setTimeout(() => {
+        emoji.remove();
+    }, 10000);
+}
+
+
+setInterval(createFloatingEmoji, 500);
