@@ -49,30 +49,69 @@ function updateDaysCounter() {
     }, 30);
 }
 
-// ===== MUSIC PLAYER SIMULATION =====
-document.querySelectorAll('.play-btn').forEach((btn, index) => {
-    let playing = false;
-    let progress = 0;
-    let intervalId = null;
+// ===== REAL MUSIC PLAYER =====
+function formatTime(seconds) {
+    if (isNaN(seconds)) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return mins + ':' + (secs < 10 ? '0' : '') + secs;
+}
 
-    btn.addEventListener('click', () => {
-        playing = !playing;
-        const icon = btn.querySelector('.play-icon');
-        const progressBar = document.getElementById('progress' + (index + 1));
+function setupPlayer(playerNum) {
+    const audio = document.getElementById('audio' + playerNum);
+    const playBtn = document.getElementById('playBtn' + playerNum);
+    const icon = playBtn.querySelector('.play-icon');
+    const progressFill = document.getElementById('progress' + playerNum);
+    const progressBar = document.getElementById('progressBar' + playerNum);
+    const timeDisplay = document.getElementById('time' + playerNum);
+    const otherNum = playerNum === 1 ? 2 : 1;
 
-        if (playing) {
+    // Play / Pause
+    playBtn.addEventListener('click', () => {
+        const otherAudio = document.getElementById('audio' + otherNum);
+        const otherIcon = document.getElementById('playBtn' + otherNum).querySelector('.play-icon');
+
+        if (audio.paused) {
+            // Pause the other player first
+            if (!otherAudio.paused) {
+                otherAudio.pause();
+                otherIcon.textContent = '▶';
+            }
+            audio.play();
             icon.textContent = '⏸';
-            intervalId = setInterval(() => {
-                progress += 0.5;
-                if (progress >= 100) { progress = 0; playing = false; icon.textContent = '▶'; clearInterval(intervalId); }
-                progressBar.style.width = progress + '%';
-            }, 200);
         } else {
+            audio.pause();
             icon.textContent = '▶';
-            clearInterval(intervalId);
         }
     });
-});
+
+    // Update progress bar & time as audio plays
+    audio.addEventListener('timeupdate', () => {
+        if (audio.duration) {
+            const pct = (audio.currentTime / audio.duration) * 100;
+            progressFill.style.width = pct + '%';
+            timeDisplay.textContent = formatTime(audio.currentTime);
+        }
+    });
+
+    // Click on progress bar to seek
+    progressBar.addEventListener('click', (e) => {
+        const rect = progressBar.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const pct = clickX / rect.width;
+        audio.currentTime = pct * audio.duration;
+    });
+
+    // When song ends, reset
+    audio.addEventListener('ended', () => {
+        icon.textContent = '▶';
+        progressFill.style.width = '0%';
+        timeDisplay.textContent = '0:00';
+    });
+}
+
+setupPlayer(1);
+setupPlayer(2);
 
 // ===== SURPRISE MODAL =====
 const surpriseBtn = document.getElementById('surpriseBtn');
