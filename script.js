@@ -113,41 +113,123 @@ function setupPlayer(playerNum) {
 setupPlayer(1);
 setupPlayer(2);
 
-// ===== SURPRISE MODAL =====
+// ===== SURPRISE EXPERIENCE =====
 const surpriseBtn = document.getElementById('surpriseBtn');
-const surpriseModal = document.getElementById('surpriseModal');
-const closeModal = document.getElementById('closeModal');
+const surpriseOverlay = document.getElementById('surpriseOverlay');
+const surpriseCloseBtn = document.getElementById('surpriseCloseBtn');
+const phaseCollage = document.getElementById('phaseCollage');
+const phaseBlessings = document.getElementById('phaseBlessings');
+const blessingTriggerBtn = document.getElementById('blessingTriggerBtn');
+const heartCollage = document.getElementById('heartCollage');
 
-function createFireworks() {
-    const container = document.getElementById('fireworks');
+// Confetti burst effect
+function createConfetti() {
+    const container = document.getElementById('surpriseConfetti');
     container.innerHTML = '';
-    const colors = ['#ff69b4','#ff3c83','#ffb6c1','#ff85c0','#ffd700','#ff6b9d','#87ceeb'];
-    for (let i = 0; i < 40; i++) {
-        const p = document.createElement('div');
-        p.className = 'firework-particle';
-        p.style.background = colors[Math.floor(Math.random() * colors.length)];
-        p.style.left = '50%';
-        p.style.top = '50%';
-        const angle = (Math.PI * 2 * i) / 40;
-        const dist = Math.random() * 150 + 50;
-        p.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
-        p.style.setProperty('--ty', Math.sin(angle) * dist + 'px');
-        p.style.animationDelay = Math.random() * 0.5 + 's';
-        container.appendChild(p);
+    const colors = ['#ff69b4','#ff3c83','#ffb6c1','#ffd700','#ff6b9d','#87ceeb','#ff85c0','#fff','#e91e8c','#f7a8d8'];
+    for (let i = 0; i < 80; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.left = Math.random() * 100 + '%';
+        piece.style.width = (Math.random() * 6 + 5) + 'px';
+        piece.style.height = (Math.random() * 8 + 8) + 'px';
+        piece.style.animationDuration = (Math.random() * 2.5 + 2) + 's';
+        piece.style.animationDelay = (Math.random() * 2) + 's';
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        container.appendChild(piece);
     }
 }
 
+// Reveal heart collage cells one by one
+function revealHeartCollage() {
+    const cells = heartCollage.querySelectorAll('.hc-cell');
+    cells.forEach((cell, i) => {
+        setTimeout(() => {
+            cell.classList.add('revealed');
+        }, i * 120);
+    });
+    // Show "Tap for Blessings" after all cells revealed
+    setTimeout(() => {
+        blessingTriggerBtn.classList.add('visible');
+    }, cells.length * 120 + 600);
+}
+
+// Reveal blessings one by one
+function revealBlessings() {
+    const title = phaseBlessings.querySelector('.blessings-title');
+    const items = phaseBlessings.querySelectorAll('.blessing-item');
+    const bear = phaseBlessings.querySelector('.blessing-bear');
+
+    setTimeout(() => title.classList.add('revealed'), 300);
+
+    items.forEach((item, i) => {
+        setTimeout(() => {
+            item.classList.add('revealed');
+        }, 700 + i * 550);
+    });
+
+    // Show bear after all blessings
+    setTimeout(() => {
+        bear.classList.add('revealed');
+    }, 700 + items.length * 550 + 400);
+
+    // Show finale section (big heart + cute close button)
+    const finale = phaseBlessings.querySelector('.finale-section');
+    if (finale) {
+        setTimeout(() => {
+            finale.classList.add('revealed');
+        }, 700 + items.length * 550 + 1200);
+    }
+}
+
+// Reset all surprise states
+function resetSurprise() {
+    heartCollage.querySelectorAll('.hc-cell').forEach(c => c.classList.remove('revealed'));
+    blessingTriggerBtn.classList.remove('visible');
+    const bTitle = phaseBlessings.querySelector('.blessings-title');
+    if (bTitle) bTitle.classList.remove('revealed');
+    phaseBlessings.querySelectorAll('.blessing-item').forEach(b => b.classList.remove('revealed'));
+    const bBear = phaseBlessings.querySelector('.blessing-bear');
+    if (bBear) bBear.classList.remove('revealed');
+    phaseCollage.classList.remove('active');
+    phaseBlessings.classList.remove('active');
+    const finale = phaseBlessings.querySelector('.finale-section');
+    if (finale) finale.classList.remove('revealed');
+    document.getElementById('surpriseConfetti').innerHTML = '';
+}
+
+// Open surprise
 surpriseBtn.addEventListener('click', () => {
-    surpriseModal.classList.add('active');
-    createFireworks();
+    surpriseOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    resetSurprise();
+    phaseCollage.classList.add('active');
+    createConfetti();
+    setTimeout(revealHeartCollage, 700);
 });
 
-closeModal.addEventListener('click', () => {
-    surpriseModal.classList.remove('active');
+// Transition to blessings
+blessingTriggerBtn.addEventListener('click', () => {
+    phaseCollage.classList.remove('active');
+    phaseBlessings.classList.add('active');
+    surpriseOverlay.scrollTop = 0;
+    createConfetti();
+    revealBlessings();
 });
 
-surpriseModal.addEventListener('click', (e) => {
-    if (e.target === surpriseModal) surpriseModal.classList.remove('active');
+// Close surprise
+function closeSurprise() {
+    surpriseOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+    resetSurprise();
+}
+
+surpriseCloseBtn.addEventListener('click', closeSurprise);
+const cuteCloseBtn = document.getElementById('cuteCloseBtn');
+if (cuteCloseBtn) cuteCloseBtn.addEventListener('click', closeSurprise);
+surpriseOverlay.addEventListener('click', (e) => {
+    if (e.target === surpriseOverlay) closeSurprise();
 });
 
 // ===== SCROLL REVEAL =====
