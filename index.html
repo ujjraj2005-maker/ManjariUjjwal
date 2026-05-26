@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A beautiful love page for Ujjwal & Manjari - celebrating their love story">
-    <title>❤️ Manjari & Ujjwal ❤️</title>
+    <title>❤️ Ujjwal & Manjari ❤️</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
         <header class="header" id="header">
             <h1 class="title">
                 <span class="heart-icon">❤️</span>
-                Manjari & Ujjwal
+                Ujjwal & Manjari
                 <span class="heart-icon">❤️</span>
             </h1>
             <p class="subtitle">
@@ -57,7 +57,7 @@
        
         <div class="music-section" id="musicSection">
             <div class="music-player" id="player1">
-                <audio id="audio1" preload="metadata" src="DOPAMINE - SouthMelody.mp3"></audio>
+                <audio id="audio1" preload="metadata" src="Ik Kudi - Arpit Bala & Wolf.Cryman _ (Lyrics) [Y6GtWgJGtmU].mp3"></audio>
                 <div class="player-header">
                     <span>🎵</span>
                     <span class="player-title">Madm Favourite 🥰</span>
@@ -87,8 +87,8 @@
             </div>
 
             <div class="music-player" id="player2">
-                
-                <audio id="audio2" preload="metadata" src="Zulfein.mp3"></audio>
+                <!-- ⬇️ Add your second song file here (replace the src) -->
+                <audio id="audio2" preload="metadata" src="song2.mp3"></audio>
                 <div class="player-header">
                     <span>🎵</span>
                     <span class="player-title">Our Today Song, Its For You Madm 💕</span>
@@ -140,9 +140,9 @@
             <div class="quote-card">
                 <p class="quote-text" id="typewriterText">
                     Even though we are miles apart,<br>
-                    my heart beats only for you  ❤️💕🥰🫀
-                    <span class="cursor-blink">|</span>
+                    my heart beats only for you ❤️
                 </p>
+                <span class="cursor-blink">|</span>
             </div>
             <img src="bears_together.png" alt="cute bears" class="quote-bear quote-bear-right">
         </div>
@@ -159,23 +159,103 @@
         <!-- Surprise Button -->
         <div class="surprise-section" id="surpriseSection">
             <button class="surprise-btn" id="surpriseBtn">
+                <span class="surprise-btn-glow"></span>
                 <span>🎁</span> Click for Surprise <span>🎉</span>
             </button>
         </div>
 
-        <!-- Surprise Modal -->
-        <div class="surprise-modal" id="surpriseModal">
-            <div class="surprise-content">
-                <div class="fireworks" id="fireworks"></div>
-                <button class="close-modal" id="closeModal">&times;</button>
-                <div class="surprise-hearts"></div>
-                <h2>💖 My Love 💖</h2>
-                <p>I know I’ve hurt you many times by repeating the same mistakes and I hate that I became the reason for your pain. I never wanted to make you feel unheard, unimportant, or disappointed. I understanding day by day , but one thing I never failed in was loving you genuinely. I’m not perfect, but every day I’m trying to become better for us, because losing you is something my heart still can’t accept. and you know my fear plizz soory fro this bbe.<br>Babyyyyyyyyyyyyyyyyyy</b>💕</p>  
-                <div class="surprise-emojis">
-                    <span>🥰</span><span>💝</span><span>💘</span><span>💗</span><span>💓</span>
+        <!-- Surprise Full-Screen Overlay -->
+        <div class="surprise-overlay" id="surpriseOverlay">
+            <button class="surprise-close-btn" id="surpriseCloseBtn">&times;</button>
+
+            <!-- SVG Heart Clip Path Definition -->
+            <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+                <defs>
+                    <clipPath id="heartClip" clipPathUnits="objectBoundingBox">
+                        <path d="M0.5,0.9 C0.15,0.7,0.02,0.5,0.02,0.33 C0.02,0.1,0.2,0.02,0.38,0.02 C0.48,0.02,0.5,0.1,0.5,0.2 C0.5,0.1,0.52,0.02,0.62,0.02 C0.8,0.02,0.98,0.1,0.98,0.33 C0.98,0.5,0.85,0.7,0.5,0.9 Z"/>
+                    </clipPath>
+                </defs>
+            </svg>
+
+            <!-- Phase 1: Heart Photo Collage -->
+            <div class="surprise-phase phase-collage active" id="phaseCollage">
+                <h2 class="phase-title">💖 Our Moments Together 💖</h2>
+                <div class="heart-collage-container">
+                    <div class="heart-collage" id="heartCollage">
+                        <div class="hc-cell"><img src="s5.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s3.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s2.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s4.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s6.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s8.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s3.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s11.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s8.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s6.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s3.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s1.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s9.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s8.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s2.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s9.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s11.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s3.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s5.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s1.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s3.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s6.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s5.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s9.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s4.jpeg" alt="memory" loading="lazy"></div>
+                    </div>
                 </div>
-                <img src="bear_couple_hug.png" alt="cute bears hugging" class="surprise-bear">
+                <button class="blessing-trigger-btn" id="blessingTriggerBtn">
+                    ✨ Tap for Blessings ✨
+                </button>
             </div>
+
+            <!-- Phase 2: Blessings -->
+            <div class="surprise-phase phase-blessings" id="phaseBlessings">
+                <div class="blessings-scroll" id="blessingsScroll">
+                    <h2 class="blessings-title">🙏 Blessings For Us 🙏</h2>
+                    <div class="blessing-item">
+                        <span class="b-emoji">💕</span>
+                        <p>May our love grow stronger with each passing day, like a river that deepens with time.</p>
+                    </div>
+                    <div class="blessing-item">
+                        <span class="b-emoji">🌸</span>
+                        <p>May happiness and joy bloom in every corner of our life together.</p>
+                    </div>
+                    <div class="blessing-item">
+                        <span class="b-emoji">💫</span>
+                        <p>May we always find warmth, comfort, and peace in each other's hearts.</p>
+                    </div>
+                    
+                    
+                    <div class="blessing-item blessing-final">
+                        <span class="b-emoji">🙏✨</span>
+                        <p>May God bless our beautiful bond forever and always.</p>
+                        <span class="blessing-names">Manjari❤️Ujjwal</span>
+                    </div>
+                    <img src="bear_couple_hug.png" alt="cute bears" class="blessing-bear">
+
+                    <!-- Final Heart & Cute Close -->
+                    <div class="finale-section" id="finaleSection">
+                        <div class="finale-heart">
+                            <div class="heart-glow-ring"></div>
+                            <div class="big-heart">❤️</div>
+                            <div class="heart-glow-ring ring-2"></div>
+                        </div>
+                        <p class="finale-text">Forever & Always 💫</p>
+                        <button class="cute-close-btn" id="cuteCloseBtn">
+                            <span>😘</span> Close  <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Confetti Container -->
+            <div class="surprise-confetti" id="surpriseConfetti"></div>
         </div>
 
         <!-- Love Message -->
