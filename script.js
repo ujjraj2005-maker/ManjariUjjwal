@@ -232,6 +232,28 @@ surpriseOverlay.addEventListener('click', (e) => {
     if (e.target === surpriseOverlay) closeSurprise();
 });
 
+// ===== SORRY MODAL =====
+const sorryBtn = document.getElementById('sorryBtn');
+const sorryOverlay = document.getElementById('sorryOverlay');
+const sorryCloseBtn = document.getElementById('sorryCloseBtn');
+
+sorryBtn.addEventListener('click', () => {
+    sorryOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
+
+sorryCloseBtn.addEventListener('click', () => {
+    sorryOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+});
+
+sorryOverlay.addEventListener('click', (e) => {
+    if (e.target === sorryOverlay) {
+        sorryOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+
 // ===== SCROLL REVEAL =====
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
