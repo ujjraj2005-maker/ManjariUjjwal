@@ -360,7 +360,7 @@ body {
 .counter-suffix { font-size: 1.1rem; color: #87ceeb; margin-top: 2px; }
 
 /* ===== SURPRISE BUTTON ===== */
-.surprise-section { display: flex; justify-content: center; padding: 15px 0; animation: fadeIn 2.2s ease-out; }
+.surprise-section { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; padding: 15px 0; animation: fadeIn 2.2s ease-out; }
 
 .surprise-btn {
     position: relative;
@@ -400,6 +400,98 @@ body {
 }
 
 .surprise-btn:active { transform: scale(0.97); }
+
+/* ===== SORRY BUTTON ===== */
+.sorry-btn {
+    position: relative;
+    background: linear-gradient(135deg, #4da6ff, #80bfff, #b3d9ff);
+    border: none;
+    border-radius: 50px;
+    padding: 16px 42px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 25px rgba(77, 166, 255, 0.45), 0 0 60px rgba(128, 191, 255, 0.15);
+    overflow: hidden;
+    letter-spacing: 0.5px;
+}
+
+.sorry-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -60%;
+    width: 220%; height: 200%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+    transform: rotate(25deg);
+    animation: btnShimmer 3s ease-in-out infinite;
+}
+
+.sorry-btn:hover {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 8px 35px rgba(77, 166, 255, 0.6), 0 0 80px rgba(128, 191, 255, 0.25);
+}
+
+.sorry-btn:active { transform: scale(0.97); }
+
+/* ===== SORRY MODAL ===== */
+.sorry-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.sorry-overlay.active { opacity: 1; visibility: visible; }
+
+.sorry-modal {
+    background: linear-gradient(145deg, rgba(20,25,30,0.9), rgba(15,20,25,0.95));
+    border: 1px solid rgba(77, 166, 255, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 400px; width: 90%;
+    text-align: center;
+    position: relative;
+    transform: translateY(30px) scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 40px rgba(77, 166, 255, 0.2);
+}
+
+.sorry-overlay.active .sorry-modal { transform: translateY(0) scale(1); }
+
+.sorry-close-btn {
+    position: absolute; top: 15px; right: 20px;
+    background: none; border: none;
+    color: #b3d9ff; font-size: 2rem; cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.sorry-close-btn:hover { color: #fff; }
+
+.sorry-modal h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    color: #4da6ff;
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px rgba(77, 166, 255, 0.4);
+}
+
+.sorry-modal p {
+    color: #b3d9ff;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.sorry-bear {
+    width: 150px;
+    animation: bearBounce 3s infinite;
+}
 
 /* ===== SURPRISE OVERLAY ===== */
 .surprise-overlay {
