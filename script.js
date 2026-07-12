@@ -29,14 +29,22 @@ function createParticles() {
 }
 
 // ===== DAYS COUNTER =====
+// FIXED updateDaysCounter() — handles timezone correctly
 function updateDaysCounter() {
-    // Set your relationship start date here
-    const startDate = new Date('2025-11-21');
+    // Parse date in LOCAL time (not UTC) to avoid off-by-one day
+    const startDate = new Date(2025, 11, 21); // Month is 0-indexed: 10 = November
     const today = new Date();
-    const diffTime = Math.abs(today - startDate);
+
+    // Strip time portion — compare dates only
+    today.setHours(0, 0, 0, 0);
+    startDate.setHours(0, 0, 0, 0);
+
+    const diffTime = today - startDate;
     const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
     const counterEl = document.getElementById('daysCounter');
+    if (!counterEl) return; // Guard against missing element
+
     let current = 0;
     const step = Math.max(1, Math.floor(diffDays / 60));
     const interval = setInterval(() => {
