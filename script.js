@@ -31,11 +31,11 @@ function createParticles() {
 // ===== DAYS COUNTER =====
 // FIXED updateDaysCounter() — handles timezone correctly
 function updateDaysCounter() {
-    // Parse date in LOCAL time (not UTC) to avoid off-by-one day
-    const startDate = new Date(2025, 10, 21); // Month is 0-indexed: 10 = November ✅
+    
+    const startDate = new Date(2025, 10, 21); 
     const today = new Date();
 
-    // Strip time portion — compare dates only
+  
     today.setHours(0, 0, 0, 0);
     startDate.setHours(0, 0, 0, 0);
 
