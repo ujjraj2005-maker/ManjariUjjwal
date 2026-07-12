@@ -32,7 +32,7 @@ function createParticles() {
 // FIXED updateDaysCounter() — handles timezone correctly
 function updateDaysCounter() {
     // Parse date in LOCAL time (not UTC) to avoid off-by-one day
-    const startDate = new Date(2025, 11, 21); // Month is 0-indexed: 10 = November
+    const startDate = new Date(2025, 10, 21); // Month is 0-indexed: 10 = November ✅
     const today = new Date();
 
     // Strip time portion — compare dates only
@@ -245,22 +245,24 @@ const sorryBtn = document.getElementById('sorryBtn');
 const sorryOverlay = document.getElementById('sorryOverlay');
 const sorryCloseBtn = document.getElementById('sorryCloseBtn');
 
-sorryBtn.addEventListener('click', () => {
-    sorryOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-});
+if (sorryBtn && sorryOverlay && sorryCloseBtn) {
+    sorryBtn.addEventListener('click', () => {
+        sorryOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
 
-sorryCloseBtn.addEventListener('click', () => {
-    sorryOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-});
-
-sorryOverlay.addEventListener('click', (e) => {
-    if (e.target === sorryOverlay) {
+    sorryCloseBtn.addEventListener('click', () => {
         sorryOverlay.classList.remove('active');
         document.body.style.overflow = '';
-    }
-});
+    });
+
+    sorryOverlay.addEventListener('click', (e) => {
+        if (e.target === sorryOverlay) {
+            sorryOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}
 
 // ===== SCROLL REVEAL =====
 const observer = new IntersectionObserver((entries) => {
