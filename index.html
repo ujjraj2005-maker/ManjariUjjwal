@@ -11,6 +11,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Responsive Romantic Wallpaper Background Layers -->
+    <div class="bg-wallpaper-layer" aria-hidden="true"></div>
+    <div class="bg-vignette-overlay" aria-hidden="true"></div>
+
+    <!-- Ambient Dreamy Aurora Glow Orbs -->
+    <div class="aurora-container" aria-hidden="true">
+        <div class="aurora-orb orb-1"></div>
+        <div class="aurora-orb orb-2"></div>
+        <div class="aurora-orb orb-3"></div>
+    </div>
+
     <!-- Floating Hearts Background -->
     <div class="hearts-bg" id="heartsBg"></div>
 
@@ -43,15 +54,15 @@
 
         <!-- Decorative Emoji Row -->
         <div class="emoji-row">
-            <span>💕</span>
+            <span>💙</span>
             <span>🐻</span>
-            <span>❤️</span>
+            <span>💕</span>
             <span>🌸</span>
             <span>💫</span>
             <span>🧸</span>
-            <span>💝</span>
+            <span>💖</span>
             <span>✨</span>
-            <span>💕</span>
+            <span>💙</span>
         </div>
 
        
@@ -88,7 +99,7 @@
 
             <div class="music-player" id="player2">
                 
-                <audio id="audio2" preload="metadata" src="Zehnaseeb.mp3"></audio>
+                <audio id="audio2" preload="metadata" src="youtube-audio.mp3"></audio>
                 <div class="player-header">
                     <span>🎵</span>
                     <span class="player-title">Our Today Song, Its For You Madm 💕</span>
@@ -150,17 +161,41 @@
         <!-- Days Together Counter -->
         <div class="counter-section" id="counterSection">
             <div class="counter-card">
-                <p class="counter-label">Days Together 🥰</p>
-                <p class="counter-number" id="daysCounter">0</p>
-                <p class="counter-suffix">days 💙</p>
+                <p class="counter-label">Together in Love 🥰</p>
+                <div class="counter-grid">
+                    <div class="counter-unit">
+                        <span class="counter-number" id="daysCounter">0</span>
+                        <span class="unit-label">Days</span>
+                    </div>
+                    <div class="counter-separator">:</div>
+                    <div class="counter-unit">
+                        <span class="counter-number" id="hoursCounter">00</span>
+                        <span class="unit-label">Hours</span>
+                    </div>
+                    <div class="counter-separator">:</div>
+                    <div class="counter-unit">
+                        <span class="counter-number" id="minutesCounter">00</span>
+                        <span class="unit-label">Mins</span>
+                    </div>
+                    <div class="counter-separator">:</div>
+                    <div class="counter-unit">
+                        <span class="counter-number" id="secondsCounter">00</span>
+                        <span class="unit-label">Secs</span>
+                    </div>
+                </div>
+                <p class="counter-suffix">And counting every single second with you 💙✨</p>
             </div>
         </div>
 
-        <!-- Surprise Button -->
+        <!-- Surprise & Sorry Buttons -->
         <div class="surprise-section" id="surpriseSection">
             <button class="surprise-btn" id="surpriseBtn">
                 <span class="surprise-btn-glow"></span>
                 <span>🎁</span> Click for Surprise <span>🎉</span>
+            </button>
+            <button class="sorry-btn" id="sorryBtn">
+                <span class="sorry-btn-glow"></span>
+                <span class="sorry-bear-emoji">🥺</span> Forgive Me, Madm? <span>🧸</span>
             </button>
         </div>
 
@@ -182,31 +217,31 @@
                 <h2 class="phase-title">💕 Our Moments 💕</h2>
                 <div class="heart-collage-container">
                     <div class="heart-collage" id="heartCollage">
+                        <div class="hc-cell"><img src="20260831_113931.jpg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="WhatsApp Image 2026-03-30 at 09.39.43.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="20260831_113939.jpg" alt="memory" loading="lazy"></div>
                         <div class="hc-cell"><img src="s5.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="20260831_115021.jpg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="WhatsApp Image 2026-04-09 at 22.04.15.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="20260831_115034.jpg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="S12.jpg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="20260831_120546.jpg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="WhatsApp Image 2026-09-02 at 17.19.19.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="20260831_120622.jpg" alt="memory" loading="lazy"></div>
                         <div class="hc-cell"><img src="s3.jpeg" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="S12.jpg" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="s4.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="20260831_131042.jpg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="A1.jpg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="20260831_143454.jpg" alt="memory" loading="lazy"></div>
                         <div class="hc-cell"><img src="S16.jpg" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="20260831_143454.heic" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="S13.jpg" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="20260831_115034.heic" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="20260831_131042.heic" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="20260831_120546.heic" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="A2.jpg" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="20260831_113931.heic" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="s9.jpeg" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="20260831_115021.heic" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="s2.jpeg" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="s9.jpeg" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="s11.jpeg" alt="memory" loading="lazy"></div>
                         <div class="hc-cell"><img src="A4.jpg" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="A5.jpg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s4.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="A2.jpg" alt="memory" loading="lazy"></div>
                         <div class="hc-cell"><img src="S14.jpg" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="A6.jpeg" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="s6.jpeg" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="S16.jpg" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="s9.jpeg" alt="memory" loading="lazy"></div>
-                        <div class="hc-cell"><img src="S12.jpg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="A6.jpg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s8.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="S17.jpg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="s11.jpeg" alt="memory" loading="lazy"></div>
+                        <div class="hc-cell"><img src="A7.jpg" alt="memory" loading="lazy"></div>
                     </div>
                 </div>
                 <button class="blessing-trigger-btn" id="blessingTriggerBtn">
@@ -256,6 +291,129 @@
 
             <!-- Confetti Container -->
             <div class="surprise-confetti" id="surpriseConfetti"></div>
+        </div>
+
+        <!-- Fantastic Sorry Experience Overlay -->
+        <div class="sorry-overlay" id="sorryOverlay">
+            <div class="sorry-modal-card" id="sorryModalCard">
+                <button class="sorry-close-btn" id="sorryCloseBtn" aria-label="Close">&times;</button>
+
+                <!-- Normal Apology State -->
+                <div class="sorry-content" id="sorryContent">
+                    <!-- Cute Pleading Bear Header -->
+                    <div class="sorry-hero">
+                        <div class="sorry-bear-wrapper">
+                            <img src="bears_with_heart.png" alt="Sorry Bear" class="sorry-hero-bear">
+                            <span class="tear-drop tear-left">💧</span>
+                            <span class="tear-drop tear-right">💧</span>
+                        </div>
+                        <h2 class="sorry-title">I'm So Sorry, Meri Jaan... 🥺</h2>
+                        <p class="sorry-subtitle">Seeing you sad breaks my heart. Your Ujjwal is truly sorry 💔</p>
+                    </div>
+
+                    <!-- Emotional Heart Note -->
+                    <div class="sorry-note-card">
+                        <div class="sorry-note-header">
+                            <span>💌</span>
+                            <span>A Letter from My Heart</span>
+                            <span>💌</span>
+                        </div>
+                        <p class="sorry-note-text">
+                            "I never, ever want to be the reason behind your tears, anger, or silence. If I hurt you or made you feel bad, please forgive me from the bottom of my heart.<br><br>
+                            Your smile is my favorite thing in the whole universe. Without your laughter, everything feels so empty. Please maan jao na, Madm? I love you to the moon and back. ❤️"
+                        </p>
+                        <div class="sorry-signature">— Forever & Always Yours, Ujjwal 💕</div>
+                    </div>
+
+                    <!-- Beating & Crying Heart Section -->
+                    <div class="crying-heart-section">
+                        <div class="crying-heart-box">
+                            <div class="beating-heart-element">
+                                <svg class="crying-heart-svg" viewBox="0 0 100 90">
+                                    <defs>
+                                        <linearGradient id="cryingHeartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#f43f5e"/>
+                                            <stop offset="50%" stop-color="#be123c"/>
+                                            <stop offset="100%" stop-color="#881337"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Heart Shape -->
+                                    <path class="heart-shape" d="M50,85 C20,60 5,45 5,26 C5,11 17,2 32,2 C40,2 47,6 50,13 C53,6 60,2 68,2 C83,2 95,11 95,26 C95,45 80,60 50,85 Z" fill="url(#cryingHeartGrad)"/>
+                                    <!-- Inner Soft Highlight -->
+                                    <path class="heart-highlight" d="M22,14 C16,20 14,27 15,35" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                    <!-- Sad Teary Eyes -->
+                                    <ellipse cx="36" cy="35" rx="4.5" ry="5.5" fill="#170824"/>
+                                    <ellipse cx="64" cy="35" rx="4.5" ry="5.5" fill="#170824"/>
+                                    <!-- Eye Highlights -->
+                                    <circle cx="34.5" cy="33" r="1.8" fill="#ffffff"/>
+                                    <circle cx="62.5" cy="33" r="1.8" fill="#ffffff"/>
+                                    <circle cx="37.5" cy="37" r="0.9" fill="#ffffff"/>
+                                    <circle cx="65.5" cy="37" r="0.9" fill="#ffffff"/>
+                                    <!-- Sad Drooping Eyebrows -->
+                                    <path d="M30,27 Q36,31 41,28" stroke="#170824" stroke-width="2" stroke-linecap="round" fill="none"/>
+                                    <path d="M70,27 Q64,31 59,28" stroke="#170824" stroke-width="2" stroke-linecap="round" fill="none"/>
+                                    <!-- Sad Trembling Quivering Mouth -->
+                                    <path class="trembling-mouth" d="M43,51 Q50,46 57,51" stroke="#170824" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+                                </svg>
+
+                                <!-- Animated Falling Teardrops -->
+                                <div class="crying-tears left-tears">
+                                    <span class="tear t1">💧</span>
+                                    <span class="tear t2">💧</span>
+                                </div>
+                                <div class="crying-tears right-tears">
+                                    <span class="tear t3">💧</span>
+                                    <span class="tear t4">💧</span>
+                                </div>
+                            </div>
+
+                            <!-- Puddle & Caption -->
+                            <div class="tear-puddle"></div>
+                            <p class="crying-heart-text">Mera dil ro raha hai... Please ek baar smile kar do na 🥺💔</p>
+                            <p class="crying-heart-subtext">Only your smile can heal my heart ❤️‍🩹</p>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Forgiveness Choice -->
+                    <div class="forgiveness-box">
+                        <p class="forgiveness-question">Will you forgive your Ujjwal? 🥺👉👈</p>
+                        <div class="forgiveness-buttons">
+                            <button class="forgive-yes-btn" id="forgiveYesBtn">
+                                <span>🥰</span> Yes, I forgive you!
+                            </button>
+                            <button class="forgive-no-btn" id="forgiveNoBtn">
+                                <span>😤</span> No, still angry
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Forgiven Success State -->
+                <div class="sorry-success" id="sorrySuccess" style="display: none;">
+                    <div class="success-heart-pulse">❤️</div>
+                    <img src="bear_couple_hug.png" alt="Happy Bears" class="success-bear">
+                    <h2 class="success-title">Yayyyyy! You Forgave Me! 🥰🎉</h2>
+                    <p class="success-msg">
+                        Your precious smile is back, and that's the greatest gift in the world! 💫<br>
+                        I promise to always keep you laughing and cherish you forever! ❤️
+                    </p>
+                    <button class="success-close-btn" id="successCloseBtn">
+                        <span>😘</span> Love You Too, Janu! <span>💕</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Fullscreen Hug Overlay Effect -->
+            <div class="hug-fullscreen-effect" id="hugEffect">
+                <div class="hug-bears-animation">
+                    <img src="bears_together.png" alt="Bear Hug" class="hug-bear-img">
+                    <div class="hug-heart-aura">💖</div>
+                    <p class="hug-banner-text">HUGGING YOU TIGHTEST RIGHT NOW! 🤗🧸✨</p>
+                </div>
+            </div>
+            
+            <!-- Confetti for Sorry Overlay -->
+            <div class="sorry-confetti" id="sorryConfetti"></div>
         </div>
 
         <!-- Love Message -->
